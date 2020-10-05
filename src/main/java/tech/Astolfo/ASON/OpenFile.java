@@ -12,6 +12,12 @@ import java.util.Scanner;
 
 public class OpenFile {
 
+    /**
+     * @param file User enters specified file which will be iterated through
+     * @return returns an ArrayList with every line of the json file saved in it line by line in order
+     * @throws IOException
+     */
+
     private ArrayList<String> OpenFromFile(File file) throws IOException {
         ArrayList<String> contents = new ArrayList<String>();
         BufferedReader br = new BufferedReader(new FileReader(file));
@@ -20,6 +26,13 @@ public class OpenFile {
         }
         return contents;
     }
+
+    /**
+     *
+     * @param url User enters the URL the JSON is saved in common uses include: reading API's
+     * @return returns an ArrayList with every line of the json file saved in it line by line in order
+     * @throws IOException
+     */
 
     private ArrayList<String> OpenFromURL(URL url) throws IOException {
         ArrayList<String> urlcontents = new ArrayList<String>();
@@ -38,9 +51,17 @@ public class OpenFile {
         return urlcontents;
     }
 
+    /**
+     * litterally just a getter for the file ArrayList so to not make it public and have anyone access the function (AKA a safety measure)
+     */
+
     public ArrayList<String> GetFileContents(File file) throws IOException {
         return OpenFromFile(file);
     }
+
+    /**
+     * Same thing as above but with the URL one
+     */
 
     public ArrayList<String> GetURLContents(URL url) throws IOException{
         return OpenFromURL(url);
