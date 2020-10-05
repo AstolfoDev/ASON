@@ -21,8 +21,8 @@ public class OpenFile {
     private ArrayList<String> OpenFromFile(File file) throws IOException {
         ArrayList<String> contents = new ArrayList<String>();
         BufferedReader br = new BufferedReader(new FileReader(file));
-        for(String line = br.readLine(); line != null; line = br.readLine()){
-            contents.add(line.toLowerCase());
+        for(String line = br.readLine(); line != null; line = br.readLine()){ //for loop that iterates through every line untill the first blank line
+            contents.add(line.toLowerCase()); 
         }
         return contents;
     }
@@ -36,16 +36,16 @@ public class OpenFile {
 
     private ArrayList<String> OpenFromURL(URL url) throws IOException {
         ArrayList<String> urlcontents = new ArrayList<String>();
-        HttpURLConnection conn = (HttpURLConnection)url.openConnection();
-        conn.setRequestMethod("GET");
-        conn.connect();
-        int responsecode = conn.getResponseCode();
+        HttpURLConnection conn = (HttpURLConnection)url.openConnection(); //starts a connection
+        conn.setRequestMethod("GET"); //sets the request method to get informaiton
+        conn.connect(); //connects
+        int responsecode = conn.getResponseCode(); //gets response code, 200 if successfull
         if(responsecode != 200)
             throw new RuntimeException("could not connect to url " + responsecode);
         else {
-            Scanner sc = new Scanner(url.openStream());
-            while(sc.hasNext()) {
-                urlcontents.add(sc.nextLine());
+            Scanner sc = new Scanner(url.openStream()); //read the content of the page
+            while(sc.hasNext()) { //while the next line is not blank
+                urlcontents.add(sc.nextLine()); //add to the arraylist the contents of the line
             }
         }
         return urlcontents;
