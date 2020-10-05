@@ -1,4 +1,6 @@
-package JSONReader;
+package tech.Astolfo.ASON;
+
+import tech.Astolfo.ASON.OpenFile;
 
 import java.io.File;
 import java.io.IOException;
