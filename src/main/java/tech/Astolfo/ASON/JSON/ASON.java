@@ -2,12 +2,14 @@ package tech.Astolfo.ASON.JSON;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 // JSON object for storing the information and methods for JSON files
 public class ASON {
 
     // Declares a map which will contain all the keys and values for the json file
     Map json_data = new HashMap();
+
 
     /**
      Retrieves the value of an entry from the map matching the key provided
@@ -24,6 +26,24 @@ public class ASON {
         return json_data.get(key);
     }
 
+
+
+    /**
+     Retrieves all existing entries from the map
+     @return void
+     @throws RuntimeException
+     */
+    public Set get_all() {
+
+        // Checks to see if there are any entries in the object and throws an error if there are none
+        if (json_data.isEmpty()) throw new RuntimeException();
+
+        // Grabs all the entries from the map
+        return json_data.entrySet();
+    }
+
+
+
     /**
      (Over)writes entries into the map
      @param key the unique identifier associated with the value in the map
@@ -36,6 +56,8 @@ public class ASON {
         json_data.put(key, value);
     }
 
+
+
     /**
      Writes entries in the map without overwriting existing keys
      @param key the unique identifier associated with the value in the map
@@ -47,6 +69,8 @@ public class ASON {
         // Sets the entry in the map if the key is not currently present in the json data
         json_data.putIfAbsent(key, value);
     }
+
+
 
     /**
      Deletes the entry that matches the key provided
@@ -61,6 +85,22 @@ public class ASON {
 
         // Removes the entry that has the key matching the one specified
         json_data.remove(key);
+    }
+
+
+
+    /**
+     Deletes all existing entries from the map
+     @return void
+     @throws RuntimeException
+     */
+    public void delete_all() {
+
+        // Checks to see if there are any entries in the object and throws an error if there are none
+        if (json_data.isEmpty()) throw new RuntimeException();
+
+        // Removes all the entries from the map
+        json_data.clear();
     }
 
 }
