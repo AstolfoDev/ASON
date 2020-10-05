@@ -1,6 +1,8 @@
 package tech.Astolfo.ASON;
 
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
 
@@ -30,8 +32,9 @@ public class Add {
 
     }
 
-    String UploadToFile(String key, Object obj, File file){
-
+    void UploadToFile(String key, Object obj, File file) throws IOException {
+        FileWriter write = new FileWriter(file);
+        write.append("'" + key + "'" + obj);
     }
 
 }
