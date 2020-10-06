@@ -10,7 +10,7 @@ public class ASON {
     // Declares a map which will contain all the keys and values for the json file
     Map json_data = new HashMap();
 
-
+    
     /**
      Retrieves the value of an entry from the map matching the key provided
      @param key the unique identifier used to locate the map entry
@@ -36,7 +36,7 @@ public class ASON {
     public Set get_all() {
 
         // Checks to see if there are any entries in the object and throws an error if there are none
-        if (json_data.isEmpty()) throw new RuntimeException();
+        
 
         // Grabs all the entries from the map
         return json_data.entrySet();
