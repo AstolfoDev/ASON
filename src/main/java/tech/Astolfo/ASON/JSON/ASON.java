@@ -36,7 +36,7 @@ public class ASON {
     public Set get_all() {
 
         // Checks to see if there are any entries in the object and throws an error if there are none
-        
+        if (json_data.isEmpty()) throw new RuntimeException();
 
         // Grabs all the entries from the map
         return json_data.entrySet();
