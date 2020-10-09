@@ -8,7 +8,7 @@ import java.util.Set;
 public class ASON {
 
     // Declares a map which will contain all the keys and values for the json file
-    Map json_data = new HashMap();
+    protected Map json_data = new HashMap();
 
     
     /**
@@ -17,6 +17,7 @@ public class ASON {
      @return void
      @throws RuntimeException
      */
+
     Object get(Object key) {
 
         // Checks to see if the key specified by the user exists in the map and throws an exception if it's non-existent
@@ -103,5 +104,10 @@ public class ASON {
         json_data.clear();
     }
 
+    protected Map get_json_data() {
+
+        return json_data;
+
+    }
 }
 
