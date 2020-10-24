@@ -57,8 +57,6 @@ public class ASON {
         json_data.put(key, value);
     }
 
-
-
     /**
      Writes entries in the map without overwriting existing keys
      @param key the unique identifier associated with the value in the map

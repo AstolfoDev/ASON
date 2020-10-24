@@ -3,12 +3,14 @@ package tech.Astolfo.ASON.JSON;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Function;
 
 class AParser {
+    
     /**
      * @param f: At the moment an empty file, however this file will be equal to the final file that needs to be edited
      * @param HashI: An AtomicInteger made atomic to make it accessible during lambda expressions
@@ -19,6 +21,7 @@ class AParser {
      */
 
     File f;
+    URL url;
     AtomicInteger HashI = new AtomicInteger();
     AtomicInteger SetI = new AtomicInteger();
     FileWriter fw;
@@ -28,8 +31,12 @@ class AParser {
      *             file f
      */
 
-    AParser(File file){
+    protected void FileParser(File file){
         this.f = file;
+    }
+
+    protected void UrlParser(URL url){
+        this.url = url;
     }
 
 
